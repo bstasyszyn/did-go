@@ -16,15 +16,15 @@ import (
 
 	"github.com/btcsuite/btcutil/base58"
 	jsonld "github.com/piprate/json-gold/ld"
-	ld "github.com/trustbloc/did-go/doc/ld/documentloader"
-	ldstore "github.com/trustbloc/did-go/doc/ld/store"
-	"github.com/trustbloc/sidetree-core-go/pkg/document"
 
 	docdid "github.com/trustbloc/did-go/doc/did"
+	ld "github.com/trustbloc/did-go/doc/ld/documentloader"
+	ldstore "github.com/trustbloc/did-go/doc/ld/store"
 	"github.com/trustbloc/did-go/legacy/mem"
 	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler"
 	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree"
 	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/doc"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/document"
 	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/option/create"
 	vdrapi "github.com/trustbloc/did-go/vdr/api"
 )

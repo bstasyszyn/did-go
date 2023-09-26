@@ -14,18 +14,17 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/trustbloc/sidetree-core-go/pkg/api/operation"
-	"github.com/trustbloc/sidetree-core-go/pkg/api/protocol"
-	"github.com/trustbloc/sidetree-core-go/pkg/canonicalizer"
-	"github.com/trustbloc/sidetree-core-go/pkg/dochandler"
-	"github.com/trustbloc/sidetree-core-go/pkg/document"
-	"github.com/trustbloc/sidetree-core-go/pkg/docutil"
-	"github.com/trustbloc/sidetree-core-go/pkg/encoder"
-
 	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocol/nsprovider"
 	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocol/verprovider"
 	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/clientregistry"
 	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/common"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/api/operation"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/api/protocol"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/canonicalizer"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/dochandler"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/document"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/docutil"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/encoder"
 )
 
 const (
