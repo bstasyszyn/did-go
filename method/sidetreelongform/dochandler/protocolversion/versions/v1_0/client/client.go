@@ -7,15 +7,14 @@ SPDX-License-Identifier: Apache-2.0
 package client
 
 import (
-	"github.com/trustbloc/sidetree-core-go/pkg/api/protocol"
-	"github.com/trustbloc/sidetree-core-go/pkg/versions/1_0/doccomposer"
-	"github.com/trustbloc/sidetree-core-go/pkg/versions/1_0/doctransformer/didtransformer"
-	"github.com/trustbloc/sidetree-core-go/pkg/versions/1_0/docvalidator/didvalidator"
-	"github.com/trustbloc/sidetree-core-go/pkg/versions/1_0/operationapplier"
-	"github.com/trustbloc/sidetree-core-go/pkg/versions/1_0/operationparser"
-
 	vcommon "github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/common"
 	protocolcfg "github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/v1_0/config"
+	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/v1_0/doccomposer"
+	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/v1_0/doctransformer/didtransformer"
+	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/v1_0/docvalidator/didvalidator"
+	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/v1_0/operationapplier"
+	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/v1_0/operationparser"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/api/protocol"
 )
 
 // Factory implements version 0.1 of the client factory.

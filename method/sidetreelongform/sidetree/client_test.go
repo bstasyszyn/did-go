@@ -21,12 +21,14 @@ import (
 	gojose "github.com/go-jose/go-jose/v3"
 	"github.com/stretchr/testify/require"
 	"github.com/trustbloc/kms-go/doc/jose/jwk"
-	"github.com/trustbloc/sidetree-core-go/pkg/commitment"
-	"github.com/trustbloc/sidetree-core-go/pkg/jws"
-	"github.com/trustbloc/sidetree-core-go/pkg/util/ecsigner"
-	"github.com/trustbloc/sidetree-core-go/pkg/util/edsigner"
-	"github.com/trustbloc/sidetree-core-go/pkg/util/pubkey"
-	"github.com/trustbloc/sidetree-core-go/pkg/versions/1_0/client"
+
+	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/v1_0/clientx"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/util/ecsigner"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/util/edsigner"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/util/pubkey"
+
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/commitment"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/jws"
 
 	"github.com/trustbloc/did-go/doc/did"
 	model "github.com/trustbloc/did-go/doc/did/endpoint"
@@ -923,7 +925,7 @@ func TestClient_CreateDID(t *testing.T) {
 }
 
 type signerMock struct {
-	signer    client.Signer
+	signer    clientx.Signer
 	publicKey *jws.JWK
 }
 

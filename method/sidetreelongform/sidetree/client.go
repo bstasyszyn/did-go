@@ -18,18 +18,17 @@ import (
 	"os"
 	"strings"
 
-	"github.com/trustbloc/sidetree-core-go/pkg/commitment"
-	"github.com/trustbloc/sidetree-core-go/pkg/hashing"
-	"github.com/trustbloc/sidetree-core-go/pkg/patch"
-	"github.com/trustbloc/sidetree-core-go/pkg/util/pubkey"
-	"github.com/trustbloc/sidetree-core-go/pkg/versions/1_0/client"
-
 	docdid "github.com/trustbloc/did-go/doc/did"
+	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/v1_0/clientx"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/commitment"
 	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/doc"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/hashing"
 	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/option/create"
 	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/option/deactivate"
 	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/option/recovery"
 	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/option/update"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/patch"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/util/pubkey"
 )
 
 const (
@@ -287,7 +286,7 @@ func buildCreateRequest(multiHashAlgorithm uint, createDIDOpts *create.Opts) ([]
 		return nil, err
 	}
 
-	createRequestInfo := &client.CreateRequestInfo{
+	createRequestInfo := &clientx.CreateRequestInfo{
 		OpaqueDocument:     string(docBytes),
 		RecoveryCommitment: recoveryCommitment,
 		UpdateCommitment:   updateCommitment,
@@ -298,7 +297,7 @@ func buildCreateRequest(multiHashAlgorithm uint, createDIDOpts *create.Opts) ([]
 		createRequestInfo.AnchorOrigin = createDIDOpts.AnchorOrigin
 	}
 
-	req, err := client.NewCreateRequest(createRequestInfo)
+	req, err := clientx.NewCreateRequest(createRequestInfo)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create sidetree request: %w", err)
 	}
@@ -339,7 +338,7 @@ func (c *Client) buildUpdateRequest(did string, multiHashAlgorithm uint,
 		return nil, err
 	}
 
-	return client.NewUpdateRequest(&client.UpdateRequestInfo{
+	return clientx.NewUpdateRequest(&clientx.UpdateRequestInfo{
 		DidSuffix:        didSuffix,
 		RevealValue:      rv,
 		UpdateCommitment: nextUpdateCommitment,
@@ -383,7 +382,7 @@ func buildRecoverRequest(did string, multiHashAlgorithm uint, recoverDIDOpts *re
 		return nil, err
 	}
 
-	recoverRequestInfo := &client.RecoverRequestInfo{
+	recoverRequestInfo := &clientx.RecoverRequestInfo{
 		DidSuffix: didSuffix, RevealValue: rv, OpaqueDocument: string(docBytes),
 		RecoveryCommitment: nextRecoveryCommitment, UpdateCommitment: nextUpdateCommitment,
 		MultihashCode: multiHashAlgorithm, Signer: recoverDIDOpts.Signer,
@@ -394,7 +393,7 @@ func buildRecoverRequest(did string, multiHashAlgorithm uint, recoverDIDOpts *re
 		recoverRequestInfo.AnchorOrigin = recoverDIDOpts.AnchorOrigin
 	}
 
-	req, err := client.NewRecoverRequest(recoverRequestInfo)
+	req, err := clientx.NewRecoverRequest(recoverRequestInfo)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create sidetree request: %w", err)
 	}
@@ -419,7 +418,7 @@ func buildDeactivateRequest(did string, deactivateDIDOpts *deactivate.Opts) ([]b
 		return nil, err
 	}
 
-	return client.NewDeactivateRequest(&client.DeactivateRequestInfo{
+	return clientx.NewDeactivateRequest(&clientx.DeactivateRequestInfo{
 		DidSuffix:   didSuffix,
 		RevealValue: rv,
 		RecoveryKey: deactivateDIDOpts.Signer.PublicKeyJWK(),

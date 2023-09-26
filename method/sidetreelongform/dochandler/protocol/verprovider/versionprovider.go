@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/trustbloc/sidetree-core-go/pkg/api/protocol"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/api/protocol"
 )
 
 // ClientVersionProvider implements client versions.

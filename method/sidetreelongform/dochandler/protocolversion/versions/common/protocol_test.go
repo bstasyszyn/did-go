@@ -10,10 +10,10 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/trustbloc/sidetree-core-go/pkg/api/protocol"
-	coremocks "github.com/trustbloc/sidetree-core-go/pkg/mocks"
 
 	"github.com/trustbloc/did-go/method/sidetreelongform/dochandler/protocolversion/versions/common"
+	"github.com/trustbloc/did-go/method/sidetreelongform/sidetree/api/protocol"
+	coremocks "github.com/trustbloc/did-go/method/sidetreelongform/sidetree/mocks"
 )
 
 func TestProtocolVersion(t *testing.T) {
