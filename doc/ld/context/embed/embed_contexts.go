@@ -15,7 +15,9 @@ import (
 // nolint:gochecknoglobals // required for go:embed
 var (
 	//go:embed third_party/w3.org/credentials_v1.jsonld
-	w3orgCredentials []byte
+	w3orgCredentialsV11 []byte
+	//go:embed third_party/w3.org/credentials_v20.jsonld
+	w3orgCredentialsV20 []byte
 	//go:embed third_party/w3.org/did_v1.jsonld
 	w3orgDID []byte
 	//go:embed third_party/w3c-ccg.github.io/did_v0.11.jsonld
@@ -57,9 +59,14 @@ var (
 // Contexts contains JSON-LD contexts embedded into a Go binary.
 var Contexts = []ldcontext.Document{ //nolint:gochecknoglobals
 	{
+		URL:         "https://www.w3.org/ns/credentials/v2",
+		DocumentURL: "https://www.w3.org/ns/credentials/v2",
+		Content:     w3orgCredentialsV20,
+	},
+	{
 		URL:         "https://www.w3.org/2018/credentials/v1",
 		DocumentURL: "https://www.w3.org/2018/credentials/v1",
-		Content:     w3orgCredentials,
+		Content:     w3orgCredentialsV11,
 	},
 	{
 		URL:         "https://www.w3.org/ns/did/v1",
