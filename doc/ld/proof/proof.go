@@ -57,6 +57,7 @@ type Proof struct {
 	SignatureRepresentation SignatureRepresentation
 	// CapabilityChain must be an array. Each element is either a string or an object.
 	CapabilityChain []interface{}
+	BaseContext     string
 }
 
 // NewProof creates new proof.
@@ -113,6 +114,7 @@ func NewProof(emap map[string]interface{}) (*Proof, error) {
 		Nonce:                   nonce,
 		Challenge:               stringEntry(emap[jsonldChallenge]),
 		CapabilityChain:         capabilityChain,
+		BaseContext:             stringEntry(emap[jsonldContext]),
 	}, nil
 }
 
@@ -217,6 +219,10 @@ func (p *Proof) JSONLdObject() map[string]interface{} { // nolint:gocyclo
 
 	if p.CapabilityChain != nil {
 		emap[jsonldCapabilityChain] = p.CapabilityChain
+	}
+
+	if p.BaseContext != "" {
+		emap[jsonldContext] = p.BaseContext
 	}
 
 	return emap
